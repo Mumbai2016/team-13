@@ -1,12 +1,15 @@
-<!--
-	Author: W3layouts
-	Author URL: http://w3layouts.com
-	License: Creative Commons Attribution 3.0 Unported
-	License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <?php
-$u_gender="";
+$u_gender=" ";
+$con=mysqli_connect("localhost","root","satish11091995","dreamd");//this function returns connection on success and its parameter is(ipaddress,user,password,database name)
+		if(mysqli_connect_errno())//to check whether php is connect to database or not.
+		{
+		echo "error connecting database";
+		die();//it is good practice to write die because if user is not connected to database subsequent code is not executed.
+		}
+		
+
 ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -15,7 +18,7 @@ $u_gender="";
 <!-- Head -->
 <head>
 
-<title>Multi Login & Signup Form A Flat Responsive Widget Template :: w3layouts</title>
+<title>Dream a Dream</title>
 
 <!-- For-Mobile-Apps -->
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -44,6 +47,26 @@ $u_gender="";
 	});
 </script>
 <!-- Horizontal-Tabs-JavaScript -->
+<style>
+	.yo
+	{
+	margin-bottom: 25px;
+    color: #FFF;
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    display: inline-block;
+}
+
+.yo1
+	{
+	margin-bottom: 25px;
+    color: #FFF;
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    
+}
+
+</style>
 
 </head>
 <!-- Head -->
@@ -54,7 +77,7 @@ $u_gender="";
 <body>
 
 	<!-- Heading -->
-	<h1>MULTI LOGIN & SIGNUP FORM</h1>
+	<h1>Dream a Dream</h1>
 	<!-- //Headng -->
 
 
@@ -79,9 +102,9 @@ $u_gender="";
 						
 						<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-1">
 							<!-- Form -->
-							<form action="#" method="post">
-								<input type="text" Name="Username" placeholder="Username" required="">
-								<input type="password" Name="Password" placeholder="Password" required="">
+							<form action="clogin.php" method="post" >
+								<input type="text" Name="myusername" placeholder="Username" required="">
+								<input type="password" Name="mypassword" placeholder="Password" required="">
 								<ul>
 									<li>
 										<input type="checkbox" id="brand1" value="">
@@ -95,25 +118,34 @@ $u_gender="";
 
 						<div class="tab-2 resp-tab-content" aria-labelledby="tab_item-2">
 							<div class="register">
-								<form action="home.php" method="post">
-									<input type="text" Name="First Name" placeholder="First Name" required="">
-									<input type="text" Name="Last Name" placeholder="Last Name" required="">
+
+								<form action="signup.php" method="post">
+									<input type="text" Name="fname" placeholder="First Name" required="">
+									<input type="text" Name="lname" placeholder="Last Name" required="">
 									<input type="text" Name="Email" placeholder="Email" required="">
 									<input type="password" Name="Password" placeholder="Password" required="">
 									<input type="password" Name="Password" class="lessgap" placeholder="Confirm Password" required="">
-			
-									<input type="text" Name="Dateofbirth" placeholder="Date of birth" required="">
 									<br>
-
-			gender:
-			<input type="radio" name="gender" required="" value="male"  <?php if($u_gender=="male") echo "checked='checked'";?>>Male
-			<input type="radio" name="gender" required="" value="female"  <?php if($u_gender=="female") echo "checked='checked'";?>>female
-			
+									<div class="yo">Dateofbirth</div><input type="date" Name="Dateofbirth" placeholder="Date of birth" required="">
+									<div class="yo">Trackingdate</div><input type="date" Name="Trackingdate" placeholder="Tracking date start" required="">
+									<br>
+			<div class="yo">
+			Gender:
+			<input type="radio" class="yo" name="gender" required="" value="M" >Male
+			<input type="radio" class="yo" name="gender" required="" value="F" >Female
+			</div>
 									<input type="text" Name="U_Phone" placeholder="Phone Number" required="">
 									<input type="text" Name="F_Phone" placeholder="Father Number" required="">
 									<input type="text" Name="M_Phone" placeholder="Mother Number" required="">
 									<input type="text" Name="O_Phone" placeholder="Other Number" required="">
 									<input type="text" Name="Edu" placeholder="Education_Detail" required="">
+									<div class="yo">
+			Course:
+			<input type="radio" class="yo" name="cou" required="" value="Career awareness"  >Career awareness
+			<input type="radio" class="yo" name="cou" required="" value="Life skill development">Life skill development
+			<br><input type="radio" class="yo" name="cou" required="" value="Last mile support program">Last mile support program
+			<input type="radio" class="yo" name="cou" required="" value="long term engagement"  >long term engagement
+			</div>
 									<div class="send-button">
 										<input type="submit" value="REGISTER">
 									</div>
@@ -194,9 +226,9 @@ $u_gender="";
 	<div class="footer">
 
 		<!-- Copyright -->
-		<div class="copyright">
+		<!--<div class="copyright">
 			<p> &copy; 2016 Multi Login & Signup Form. All Rights Reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
-		</div>
+		</div>-->
 		<!-- //Copyright -->
 
 	</div>
