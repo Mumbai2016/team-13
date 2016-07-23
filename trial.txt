@@ -3,3 +3,12 @@ hi
 hijjdisds
 conflict 1
 conflict 2
+
+git checkout team13_gui
+git commit -m "created branch"
+git push
+
+git pull
+git checkout team13_gui
+
+git merge team13_gui master
