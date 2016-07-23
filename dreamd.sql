@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 23, 2016 at 03:35 PM
+-- Generation Time: Jul 23, 2016 at 06:26 PM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -19,6 +19,38 @@ SET time_zone = "+00:00";
 --
 -- Database: `dreamd`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `training`
+--
+
+CREATE TABLE IF NOT EXISTS `training` (
+`tid` int(10) NOT NULL,
+  `tname` varchar(30) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=103 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `training`
+--
+
+INSERT INTO `training` (`tid`, `tname`) VALUES
+(101, 'english '),
+(102, 'computers');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `training_user`
+--
+
+CREATE TABLE IF NOT EXISTS `training_user` (
+  `tid` int(10) NOT NULL,
+  `uid` int(10) NOT NULL,
+  `start_date` date NOT NULL,
+  `end_date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -45,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `course` varchar(30) NOT NULL,
   `milestone` int(1) NOT NULL,
   `password` varchar(15) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user`
@@ -53,11 +85,24 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 INSERT INTO `user` (`uid`, `fname`, `lname`, `dob`, `age`, `gender`, `email`, `user_phone`, `other_phone`, `edu_details`, `category`, `tracking start`, `tracking call`, `father_phone`, `mother_phone`, `course`, `milestone`, `password`) VALUES
 (1, 'Shilpa', 'Sharma', '1995-04-05', 21, 'F', 'shilpa@gmail.com', 9876543202, 7987654386, 'Senior secondary', '1', '2016-01-15', '2016-06-16', 223456893, 709543216, 'life skills', 2, ''),
-(2, 'aditi', 'patil', '2000-07-05', 16, 'F', 'aditipatil@yahoo.co.in', 90674523456, 70954632178, '10th', '1', '2014-09-17', '2016-07-03', 582179658, 854756849, 'career awareness', 1, '');
+(2, 'aditi', 'patil', '2000-07-05', 16, 'F', 'aditipatil@yahoo.co.in', 90674523456, 70954632178, '10th', '1', '2014-09-17', '2016-07-03', 582179658, 854756849, 'career awareness', 1, ''),
+(3, 'pavitra', 'dad', '1992-10-23', 23, 'F', 'pavitra.dad@gmail.com', 156464325, 549876134, 'Graduate', '2', '0000-00-00', '0000-00-00', 2147483647, 2147483647, '', 0, 'pavitra');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `training`
+--
+ALTER TABLE `training`
+ ADD PRIMARY KEY (`tid`);
+
+--
+-- Indexes for table `training_user`
+--
+ALTER TABLE `training_user`
+ ADD PRIMARY KEY (`tid`,`uid`), ADD KEY `tid` (`tid`), ADD KEY `tid_2` (`tid`), ADD KEY `uid` (`uid`);
 
 --
 -- Indexes for table `user`
@@ -70,10 +115,25 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `training`
+--
+ALTER TABLE `training`
+MODIFY `tid` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=103;
+--
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-MODIFY `uid` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+MODIFY `uid` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `training_user`
+--
+ALTER TABLE `training_user`
+ADD CONSTRAINT `traininguser_user_fk` FOREIGN KEY (`uid`) REFERENCES `user` (`uid`) ON DELETE NO ACTION ON UPDATE CASCADE;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
