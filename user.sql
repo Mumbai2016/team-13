@@ -44,6 +44,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `mother_phone` int(10) NOT NULL,
   `course` varchar(30) NOT NULL,
   `milestone` int(1) NOT NULL
+  `password` varchar(15) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
