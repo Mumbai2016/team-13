@@ -1,0 +1,188 @@
+<!DOCTYPE html5>
+<head>
+<title>form</title>
+<style>
+body
+{
+background:url("mobbg4.jpg");
+background-repeat:no-repeat;
+background-size:cover;
+color:blue;
+-webkit-text-stroke: 1px black;
+background-attachment:fixed;
+}
+#container
+{
+font-weight:bold;
+font-size:25px;
+position:absolute;
+left:25%;
+}
+</style>
+<script>
+function Validate()
+{
+var name=document.myForm.fname.value;
+if(!name.match(/^([a-zA-Z ]){2,30}$/))
+{
+alert("Name should contain only characters");
+name="";
+name.focus();
+return false;
+}
+
+var name2=document.myForm.lname.value;
+if(!name2.match(/^[a-zA-Z]+$/))
+{
+alert("Name should contain only characters");
+name2="";
+name2.focus();
+return false;
+}
+
+var x=document.myForm.age.value;
+if(x<18 || x>99|| isNaN(age))
+{
+alert("Age should be a number between 18 and 99");
+x="";
+document.myForm.age.focus();
+return false;
+}
+
+var t=document.myForm.tel.value;
+if(isNaN(t) || t=="0")
+{
+alert("Telephone number has 10 digits");
+t="0";
+t.focus();
+return false;
+}
+ if( document.myForm.user_email.value == "" )
+   {
+     alert( "Please provide your Email!" );
+     document.myForm.user_email.focus() ;
+     return false;
+   }
+
+
+return true;
+}
+</script>
+</head>
+<body>
+
+<div id=container>
+<h1><strong><center><font color=blue>REGISTRATION FORM</font></strong></h1>
+<form name=myForm method=post onsubmit="return Validate()">
+<fieldset>
+<legend><font color=magenta>PERSONAL INFORMATION</font></legend>
+<table cellpadding=5 width=70%>
+<tr>
+<td><input type=radio name=radio1 value=mr checked >Mr.
+<input type=radio name=radio1 value=ms>Ms.
+<input type=radio name=radio1 value=mrs>Mrs.
+</td></tr>
+<tr>
+<td>First Name</td>
+<td>
+<input type="text" name=fname required size=15 autofocus>
+</td><td>Last Name</td>
+<td>
+<input type="text" name=lname size=15 autofocus>
+</td>
+</tr>
+<tr>
+<td>Gender</td>
+<td><input type=radio name=radio value=radio1 checked>Male<br>
+<input type=radio name=radio value=radio2>Female<br>
+<input type=radio name=radio value=radio3>Trans<br>
+</td>
+</tr>
+<tr>
+<td>Date of Birth</td>
+<td><input type="date"></td>
+</tr>
+<tr>
+<td>Age</td>
+<td><input type=text name=age maxlength=2>
+</td></tr>
+<tr>
+<td>Address</td>
+<td><textarea name=textarea cols=24 rows=3></textarea>
+</tr>
+<tr>
+<td>State</td>
+<td>
+<select>
+<option>Andhra Pradesh</option>
+<option>Arunachal Pradesh</option>
+<option>Assam</option>
+<option>Bihar</option>
+<option>Chhattisgarh</option>
+<option>Goa</option>
+<option>Gujarat</option>
+<option>Haryana</option>
+<option>Himachal Pradesh</option>
+<option>Jammu &amp; Kashmir</option>
+<option>Jharkhand</option>
+<option>karnataka</option>
+<option>Kerala</option>
+<option>Madhya Pradesh</option>
+<option selected>Maharashtra</option>
+<option>Manipur</option>
+<option>Meghalaya</option>
+<option>Mizoram</option>
+<option>Nagaland</option>
+<option>Orissa</option>
+<option>Punjab</option>
+<option>Rajasthan</option>
+<option>Sikkim</option>
+<option>Tamil Nadu</option>
+<option>Telangana</option>
+<option>Tripura</option>
+<option>Uttar Pradesh</option>
+<option>Uttarakhand</option>
+<option>West Bengal</option>
+<option>Andaman &amp; Nicobar Islands</option>
+<option>Chandigarh</option>
+<option>Dadra &amp; Nagar Haveli</option>
+<option>Daman &amp; Diu</option>
+<option>Lakshadweep</option>
+<option>Delhi</option>
+<option>Puducherry</option>
+</td></tr>
+<tr>
+<td>Phone</td>
+<td><input type=text name=tel value=0 maxlength=11></td>
+</tr>
+<tr>
+<td>E-mail</td>
+<td> <input type="email" name="user_email"></td></tr>
+<tr>
+<td>Username</td>
+<td>
+<input type="text" name=uname required size=10></td>
+<td>Password</td>
+<td><input type="password" name=password required size=15 minlengh=8></td>
+</tr>
+</table>
+</fieldset>
+<fieldset>
+<legend><font color=magenta>PAYMENT OPTIONS</font></legend>
+<table cellpadding=3 width=80%><tr>
+<td><input type="checkbox">Check or Money Order</td>
+<td><input type="checkbox">Credit Card</td>
+<td><input type="checkbox">Visa</td>
+</tr>
+<tr>
+<td><input type="checkbox">Master Card</td>
+<td><input type="checkbox">American Express</td>
+<td><input type="checkbox">Discover</td>
+</tr></table>
+</fieldset>
+<center>
+<button type=reset>Reset</button>
+<button type=submit>Submit</button>
+</center>
+</body>
+</html>
