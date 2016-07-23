@@ -1,4 +1,7 @@
 <?php
+$error = "";
+
+
 $u_gender=" ";
 $con=mysqli_connect("localhost","root","satish11091995","dreamd");//this function returns connection on success and its parameter is(ipaddress,user,password,database name)
 		if(mysqli_connect_errno())//to check whether php is connect to database or not.
@@ -6,8 +9,6 @@ $con=mysqli_connect("localhost","root","satish11091995","dreamd");//this functio
 		echo "error connecting database";
 		die();//it is good practice to write die because if user is not connected to database subsequent code is not executed.
 		}
-		
-
 ?>
 
 <!DOCTYPE html>
@@ -45,6 +46,24 @@ $con=mysqli_connect("localhost","root","satish11091995","dreamd");//this functio
 			fit: true, // 100% fit in a container
 		});
 	});
+</script>
+<script>
+
+function validateForm() {
+    var x = document.forms["myForm"]["fname"].value;
+    if (x == null || x == "") {
+        alert("Name must be filled out");
+        return false;
+    }
+    var y = document.forms["myForm"]["email"].value;
+    var atpos = y.indexOf("@");
+    var dotpos = y.lastIndexOf(".");
+    if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
+        alert("Not a valid e-mail address");
+        return false;
+    }
+    action 
+}
 </script>
 <!-- Horizontal-Tabs-JavaScript -->
 <style>
@@ -94,7 +113,7 @@ $con=mysqli_connect("localhost","root","satish11091995","dreamd");//this functio
 						<li class="resp-tab-item" aria-controls="tab_item-1" role="tab"><h2><span>LOGIN</span></h2></li>
 						<li class="resp-tab-item" aria-controls="tab_item-2" role="tab"><span>SIGNUP</span></li>
 						<li class="resp-tab-item" aria-controls="tab_item-3" role="tab"><span>RESET PASSWORD</span></li>
-						<li class="resp-tab-item" aria-controls="tab_item-4" role="tab"><span>LOGIN OPTIONS</span></li>
+						<!--<li class="resp-tab-item" aria-controls="tab_item-4" role="tab"><span>LOGIN OPTIONS</span></li>-->
 						<div class="clear"> </div>
 					</ul>
 
@@ -119,12 +138,13 @@ $con=mysqli_connect("localhost","root","satish11091995","dreamd");//this functio
 						<div class="tab-2 resp-tab-content" aria-labelledby="tab_item-2">
 							<div class="register">
 
-								<form action="signup.php" method="post">
+								<form  name="myForm"  method="post" onsubmit="return validateForm()"  >
+
 									<input type="text" Name="fname" placeholder="First Name" required="">
 									<input type="text" Name="lname" placeholder="Last Name" required="">
 									<input type="text" Name="Email" placeholder="Email" required="">
 									<input type="password" Name="Password" placeholder="Password" required="">
-									<input type="password" Name="Password" class="lessgap" placeholder="Confirm Password" required="">
+									<input type="password" Name="cpassword" class="lessgap" placeholder="Confirm Password" required="">
 									<br>
 									<div class="yo">Dateofbirth</div><input type="date" Name="Dateofbirth" placeholder="Date of birth" required="">
 									<div class="yo">Trackingdate</div><input type="date" Name="Trackingdate" placeholder="Tracking date start" required="">
@@ -242,3 +262,12 @@ $con=mysqli_connect("localhost","root","satish11091995","dreamd");//this functio
 
 
 </html>
+
+
+<?php
+if(strlen($error)!==0)
+	{
+		header("Location:reg.php");
+	//	echo $error;
+	}
+?>

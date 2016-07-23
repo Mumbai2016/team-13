@@ -9,13 +9,14 @@ $tbl_name="user"; 		// Table name
 //mysql_select_db($db_name)or die("cannot select DB");
 // username and password sent from form 
 include 'conn.php';
-
+$error="";
 $fname=$_POST['fname']; 
 $date=$_POST["Trackingdate"];
 $lname=$_POST['lname']; 
 $pass=$_POST['Password'];
 $email=$_POST['Email'];
 $pass=$_POST['Password'];
+$cpass=$_POST['cpassword']
 $dob=$_POST['Dateofbirth'];
 $gender=$_POST['gender'];
 $u_phone=$_POST['U_Phone']; 
@@ -24,6 +25,45 @@ $m_phone=$_POST['M_Phone'];
 $o_phone=$_POST['O_Phone'];
 $edu=$_POST['Edu'];
 $cou=$_POST['cou'];
+
+
+
+	
+	if($fname==""||count($fname)==0)
+	{
+	$error=$error."enter ur name"."<br>";
+	}
+
+	if($pass!=$cpass)
+	{
+	$error=$error."enter ur password correct"."<br>";
+	}
+	
+	if(count($u_phone)<10)
+	{
+	$error=$error."enter ur phone number correct"."<br>";
+	}
+	if(count($f_phone)<10)
+	{
+	$error=$error."enter father's phone number correct"."<br>";
+	}
+		if(count($m_phone)<10)
+	{
+	$error=$error."enter mother's phone number correct"."<br>";
+	}
+		if(count($o_phone)<10)
+	{
+	$error=$error."enter other's phone number correct"."<br>";
+	}
+	
+
+
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+  $error = "Invalid email format"; 
+}
+
+if($error=="")
+{
 
 
 $sql="INSERT INTO `user`  VALUES (default,'$fname','$lname','$dob',2,'$gender','$email','$u_phone','$o_phone','$edu','1','$date',null,'$f_phone','$m_phone','$cou',null,'$pass')";
@@ -39,6 +79,11 @@ $result=mysql_query($sql);
 //session_register("myusername");
 //session_register("mypassword"); 
 header("location:update.php");
+}
+else
+{
+	echo $error;
+}
 //echo "s";
 //}
 //else {
