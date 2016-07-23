@@ -64,13 +64,13 @@ echo "</table>";
   
     <script type="text/javascript">
 
-alert(document.getElementById('dataTable').rows[3].cells[1].innerHTML);
+//alert(document.getElementById('dataTable').rows[3].cells[1].innerHTML);
 var tableArr = [];
 for(var i=1;i<dataTable.rows.length;i++)
 {
 tableArr.push({C:document.getElementById('dataTable').rows[i].cells[0].innerHTML,M:document.getElementById('dataTable').rows[i].cells[1]});
 }
-alert(tableArr.toString());
+//alert(tableArr.toString());
 
 
       // Load the Visualization API and the corechart package.
