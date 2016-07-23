@@ -3,13 +3,14 @@
 $post_data = array(
     // 'From' doesn't matter; For transactional, this will be replaced with your SenderId;
     // For promotional, this will be ignored by the SMS gateway
-    'From'   => '8808891988',
-    'To'    => '9052161119',
-    'Body'  => 'Reply 1/2 to 8088919888 to choose an appointment with Dr. Rajasekar', //Incase you are wondering who Dr. Rajasekhar is http://en.wikipedia.org/wiki/Dr._Rajasekhar_(actor)
+    'From'   => '08039591856',
+    'To'    => '07776940980',
+    'Body'  => 'Please update your details with Dream and Dream at 08039591856 ', //Incase you are wondering who Dr. Rajasekhar is http://en.wikipedia.org/wiki/Dr._Rajasekhar_(actor)
 );
  
-$exotel_sid = "xxxx"; // Your Exotel SID - Get it from here: http://my.exotel.in/Exotel/settings/site#api-settings
-$exotel_token = "xxxx"; // Your exotel token - Get it from here: http://my.exotel.in/Exotel/settings/site#api-settings
+$exotel_sid = "student261"; // Your Exotel SID - Get it from here: http://my.exotel.in/Exotel/settings/site#api-settings
+$exotel_token = "553ab9e386ab00e9ae1f2bf65b51437b1875ab60"; // Your exotel token - Get it from here: http://my.exotel.in/Exotel/settings/site#api-settings
+ 
  
 $url = "https://".$exotel_sid.":".$exotel_token."@twilix.exotel.in/v1/Accounts/".$exotel_sid."/Sms/send";
  
