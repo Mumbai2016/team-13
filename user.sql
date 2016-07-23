@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 23, 2016 at 01:17 PM
+-- Generation Time: Jul 23, 2016 at 03:35 PM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `father_phone` int(10) NOT NULL,
   `mother_phone` int(10) NOT NULL,
   `course` varchar(30) NOT NULL,
-  `milestone` int(1) NOT NULL
+  `milestone` int(1) NOT NULL,
   `password` varchar(15) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
@@ -51,9 +51,9 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`uid`, `fname`, `lname`, `dob`, `age`, `gender`, `email`, `user_phone`, `other_phone`, `edu_details`, `category`, `tracking start`, `tracking call`, `father_phone`, `mother_phone`, `course`, `milestone`) VALUES
-(1, 'Shilpa', 'Sharma', '1995-04-05', 21, 'F', 'shilpa@gmail.com', 9876543202, 7987654386, 'Senior secondary', '1', '2016-01-15', '2016-06-16', 223456893, 709543216, 'life skills', 2),
-(2, 'aditi', 'patil', '2000-07-05', 16, 'F', 'aditipatil@yahoo.co.in', 90674523456, 70954632178, '10th', '1', '2014-09-17', '2016-07-03', 582179658, 854756849, 'career awareness', 1);
+INSERT INTO `user` (`uid`, `fname`, `lname`, `dob`, `age`, `gender`, `email`, `user_phone`, `other_phone`, `edu_details`, `category`, `tracking start`, `tracking call`, `father_phone`, `mother_phone`, `course`, `milestone`, `password`) VALUES
+(1, 'Shilpa', 'Sharma', '1995-04-05', 21, 'F', 'shilpa@gmail.com', 9876543202, 7987654386, 'Senior secondary', '1', '2016-01-15', '2016-06-16', 223456893, 709543216, 'life skills', 2, ''),
+(2, 'aditi', 'patil', '2000-07-05', 16, 'F', 'aditipatil@yahoo.co.in', 90674523456, 70954632178, '10th', '1', '2014-09-17', '2016-07-03', 582179658, 854756849, 'career awareness', 1, '');
 
 --
 -- Indexes for dumped tables
