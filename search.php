@@ -24,6 +24,25 @@
 <link href='//fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
 <link href='//fonts.googleapis.com/css?family=Lato:400,700,900,300' rel='stylesheet' type='text/css'>
 <!-- //Web-Fonts -->
+<style>
+
+body
+{
+	background-color: #fff;
+}
+.k{
+
+	 width: 90%;
+    padding: 17px 19px 17px 19px;
+    margin: 25px;
+    color: #FFF;
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    border: none;
+    background-color: #516b86;
+    outline: none;
+}
+</style>
 
 <!-- Horizontal-Tabs-JavaScript -->
 <script src="js/jquery-1.11.1.min.js"></script>
@@ -40,17 +59,16 @@
 
 <body>
 	<!-- Container -->
-	<div class="container">
+	
 
 		<div class="tabs">
 
-			<div class="sap_tabs">
 
 				<div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
 
 							<!-- Form -->
 							<form  method="post" name="form1" >
-								<input type="text" Name="t1" placeholder="Username" onKeyUp="aa();">
+								<input class="k"type="text" Name="t1" placeholder="SearchUser" onKeyUp="aa();">
 								<div id="d1"></div>
 							</form>
 							<!-- //Form -->
@@ -68,11 +86,10 @@
 	
 				</div>
 
-			</div>
 
 		</div>
 
-	</div>
+	
 
 
 
