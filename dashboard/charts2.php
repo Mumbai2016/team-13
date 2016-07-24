@@ -3,42 +3,42 @@
       <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <?php
 require_once('C:/xampp/htdocs/charts/mysqli_connect.php');
-$query = "SELECT gender,uid FROM user";
+ $query = "SELECT gender,uid FROM user";
 $response = mysql_query($query);
-echo $response;
-while($row = mysql_fetch_array($response)){
+//echo $response;
+// while($row = mysql_fetch_array($response)){
  
-echo '<tr><td align="left">' . 
-$row['gender'] . '</td><td align="left">' . 
-$row['uid'] . '</td>';
+//echo '<tr><td align="left">' . 
+//$row['gender'] . '</td><td align="left">' . 
+//$row['uid'] . '</td>';
  
-echo '</tr>';
-}
+// echo '</tr>';
+// }
 $m='M';$f='F';
 $query = "SELECT COUNT(uid), milestone from user where gender='F' GROUP BY milestone";
 $response = mysql_query($query);
-echo $response;
-while($row = mysql_fetch_array($response)){
+//echo $response;
+// while($row = mysql_fetch_array($response)){
  
-echo '<tr><td align="left">' . 
-$row['COUNT(uid)'] . '</td><td align="left">' . 
-$row['milestone'] . '</td>';
+// echo '<tr><td align="left">' . 
+// $row['COUNT(uid)'] . '</td><td align="left">' . 
+// $row['milestone'] . '</td>';
  
-echo '</tr>';
-}
-echo '<br>';
+// echo '</tr>';
+// }
+// echo '<br>';
 $query = "SELECT COUNT(uid), milestone from user where gender='M' GROUP BY milestone";
 $response = mysql_query($query);
-echo $response;
+//echo $response;
 
-while($row = mysql_fetch_array($response)){
+//while($row = mysql_fetch_array($response)){
  
-echo '<tr><td align="left">' . 
-$row['COUNT(uid)'] . '</td><td align="left">' . 
-$row['milestone'] . '</td>';
+//echo '<tr><td align="left">' . 
+//$row['COUNT(uid)'] . '</td><td align="left">' . 
+//$row['milestone'] . '</td>';
  
-echo '</tr>';
-}
+//echo '</tr>';
+//}
 
 
 $d='dataTable';
@@ -49,7 +49,7 @@ echo "<table id=".$d.">
 </tr>";
 $query = "SELECT COUNT(uid), milestone from user where gender='M' GROUP BY milestone";
 $response = mysql_query($query);
-echo $response;
+//echo $response;
 while($row = mysql_fetch_array($response)) {
     echo "<tr>";
     echo "<td>" . $row['COUNT(uid)'] . "</td>";
@@ -58,6 +58,8 @@ while($row = mysql_fetch_array($response)) {
     echo "</tr>";
 }
 echo "</table>";
+
+echo '<br>';echo '<br>';
     ?>
 
     <!--Load the AJAX API-->
