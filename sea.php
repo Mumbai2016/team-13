@@ -2,9 +2,6 @@
 <!DOCTYPE html>
 <html>
 
-
-
-<!-- Head -->
 <head>
 
 <title>Dream a Dream</title>
@@ -89,7 +86,6 @@ echo "<table class=yotab>";
 
 while($row=mysql_fetch_array($res))
 {
-
 	echo "<tr class=yotr>";
 	
 	echo "<td class=yo>";
@@ -120,7 +116,7 @@ while($row=mysql_fetch_array($res))
 	echo $row['email'];
 	echo "</td>";
 
-echo "<td class=yo>";
+    echo "<td class=yo>";
 	echo $row['user_phone'];
 	echo "</td>";
 	
