@@ -1,4 +1,0 @@
-<?
-php 
-echp "update.php"
-?>
